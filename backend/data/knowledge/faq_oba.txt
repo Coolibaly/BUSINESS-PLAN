@@ -1,0 +1,8 @@
+Q: Quel est le montant minimal pour une demande de prêt ?
+R: 100 000 FCFA.
+
+Q: Quels documents fournir ?
+R: Carte d’identité, plan d’affaires, justificatif de domicile, RIB, etc.
+
+Q: Quel est le délai moyen d’étude du dossier ?
+R: Environ 5 jours ouvrables.

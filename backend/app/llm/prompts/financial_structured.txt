@@ -1,0 +1,43 @@
+Rôle: produire un **modèle financier 12 mois structuré** pour micro/projet en Côte d’Ivoire, base FCFA, compatible crédit bancaire.
+
+Entrées: {sector}, {city}, {requested_amount_fcfa}
+Optionnel (JSON string, peut être vide): {known_costs_json}, {known_prices_json}, {historical_tx_json}, {loan_params_json}
+
+Contraintes:
+- Réponds d’abord par un **bloc JSON unique** (pas de prose), puis un bref résumé Markdown après le JSON.
+- Les nombres sont **arrondis** (FCFA), tague les estimations avec `"is_estimate": true` au niveau des items concernés.
+- Si données optionnelles vides, construis des **plages prudentes**; sinon, intègre-les.
+
+Schéma JSON attendu (extrait condensé):
+{
+  "meta": { "currency": "FCFA", "horizon_months": 12, "sector": "{sector}", "city": "{city}" },
+  "assumptions": {
+    "avg_unit_price": { "value":  ... , "is_estimate": true },
+    "avg_monthly_volume": { "value": ..., "is_estimate": true },
+    "variable_cost_pct": { "value": 0.35, "is_estimate": true },
+    "seasonality": { "M1":1.00,"M2":0.95,...,"M12":1.10 }
+  },
+  "opex_fixed": [
+    { "name":"Loyer", "monthly": ..., "is_estimate": true },
+    { "name":"Salaires", "monthly": ..., "is_estimate": true }
+  ],
+  "capex": [
+    { "item":"Équipement clé", "amount": ..., "is_estimate": true }
+  ],
+  "funding": {
+    "requested_amount_fcfa": {requested_amount_fcfa},
+    "loan": { "amount": ..., "annual_rate": 0.16, "term_months": 18, "grace_months": 0, "is_estimate": true },
+    "equity": ...
+  },
+  "pnl_by_month": [{ "month":1,"revenue":...,"cogs":...,"gross_margin":...,"opex":...,"ebitda":... }, ...],
+  "debt_service_by_month": [ ... ],
+  "cash_flow_by_month": [ ... ],
+  "cumulative_cash": [ ... ],
+  "breakeven": { "units_per_month": ..., "month_reached": 7, "is_estimate": true },
+  "dscr": { "min": 1.25, "avg": 1.45, "is_estimate": true },
+  "payback_month": 10,
+  "notes": ["Calculs de marge et DSCR à partir des hypothèses."]
+}
+
+Après le JSON, fournis en **Markdown**:
+- 3–5 lignes de lecture crédit (viabilité, marges, DSCR, conditions).

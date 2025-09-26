@@ -1,0 +1,16 @@
+Rôle: **fusionner et interpréter** des données marché locales scrappées pour {city} dans {sector}.
+
+Entrées: {sector}, {city}, {requested_amount_fcfa}
+Optionnel (JSON string): {market_data_json}  // ex: prix moyens, liste concurrents, tendances, population, sources.
+
+Contraintes:
+- Si {market_data_json} est vide, produire une lecture **générique prudentielle** en marquant (estimation).
+- Si présent, cite les chiffres sous forme: "[Source: {label}]" après la donnée.
+- Sortie en **Markdown**: 
+  ### Demande locale
+  ### Concurrence (tableau Nom | Positionnement | Fourchette prix | Forces | Faiblesses)
+  ### Tendances & facteurs clés
+  ### Risques & mitigations (tableau)
+  ### Données utilisées (liste de puces avec sources)
+
+- N’invente pas de sources; ne donne pas de liens, seulement des **labels** fournis.

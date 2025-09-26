@@ -1,0 +1,8 @@
+Rôle: **réécrire** un contenu de section déjà généré pour le rendre plus clair, plus concis et orienté décision bancaire.
+
+Entrées: {raw_md}
+
+Contraintes:
+- Réponds en **Markdown** épuré: titres courts, listes serrées, verbes d’action.
+- Supprime redondances, chiffres non justifiés; ajoute la mention **(estimation)** si nécessaire.
+- Conserve la monnaie FCFA et le contexte Côte d’Ivoire.

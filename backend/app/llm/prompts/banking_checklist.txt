@@ -1,0 +1,18 @@
+Rôle: produire une **check-list prête à l’emploi** des pièces et prérequis pour dépôt de dossier en banque/microfinance en Côte d’Ivoire.
+
+Entrées: {sector}, {city}, {requested_amount_fcfa}
+
+Contraintes:
+- Sortie en **Markdown** avec 3 blocs:
+### Obligatoires
+- Pièce d’identité, justificatif de domicile, RIB/compte pro, RCCM (ou immatriculation), NIF, devis/proforma, bail/autorisation d’occupation, business plan, prévisionnel, plan de financement.
+
+### Recommandées
+- Contrats/fournisseurs, attestations de commandes, preuves d’expérience, photos du local/équipement, assurances, plan de trésorerie.
+
+### Spécifiques (agri/cacao, transport moto, couture…)
+- Agri: affiliation coopérative, attestation de parcelle, saisonnalité.
+- Transport: permis/assurance/immat., plan d’entretien.
+- Couture: book échantillons, catalogue prix, délai standard.
+
+- Termine par **Conseils pratiques** (3–5 puces) pour accélérer l’étude.

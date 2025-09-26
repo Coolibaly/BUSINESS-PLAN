@@ -1,0 +1,18 @@
+Rôle: réaliser une **analyse de sensibilité** (what-if) sur 12 mois pour un projet à {city} dans {sector}.
+
+Entrées: {sector}, {city}, {requested_amount_fcfa}
+Optionnel: {drivers_json} (liste JSON de drivers, ex: ["price","+10%","-10%"])
+
+Contraintes:
+- Produis d’abord un **JSON** avec 3 scénarios: "stress", "base", "optimistic".
+- Chaque scénario contient: hypothèses modifiées, CA total, marge brute %, EBITDA %, DSCR, mois de BEP.
+- Ensuite seulement un **tableau Markdown** synthèse (Scénario | Hypothèses | DSCR | BEP | Commentaire).
+- Hypothèses par défaut: volume ±10%, prix ±5%, variable_cost_pct ±5 pts, loyer +10% en stress.
+
+Sortie JSON (extrait):
+{
+  "scenarios": [
+    { "name":"stress", "assumptions_delta":{"volume":-0.10,"price":-0.05,"variable_cost_pct":+0.05,"rent":+0.10}, "dscr":1.05, "breakeven_month":9, "comment":"Sous tension, mais soutenable si coûts maîtrisés." },
+    ...
+  ]
+}

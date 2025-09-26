@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16
+    container_name: pb_gen_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-pbgen}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pbgenpass}
+      POSTGRES_DB: ${POSTGRES_DB:-pbgen_dev}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-pbgen} -d ${POSTGRES_DB:-pbgen_dev}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+

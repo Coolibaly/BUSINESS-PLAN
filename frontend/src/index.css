@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles personnalisés Orange Bank */
+:root {
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-300: #fdba74;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+  --orange-800: #9a3412;
+  --orange-900: #7c2d12;
+}
+
+@layer base {
+  * {
+    /* Remplace border-border par une couleur Tailwind si non définie dans ta config */
+    @apply border-gray-200;
+  }
+  
+  body {
+    /* Remplace bg-background et text-foreground par des couleurs Tailwind si non définies */
+    @apply bg-white text-gray-900 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .orange-gradient {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600;
+  }
+  
+  .orange-shadow {
+    box-shadow: 0 4px 14px 0 rgba(234, 88, 12, 0.15);
+  }
+  
+  .chat-bubble-user {
+    @apply bg-orange-600 text-white rounded-lg px-4 py-2 max-w-xs;
+  }
+  
+  .chat-bubble-assistant {
+    @apply bg-white border border-gray-200 rounded-lg px-4 py-2 max-w-xs shadow-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    /* text-wrap: balance; n'est pas supporté partout, tu peux utiliser pretty ou retirer */
+    text-wrap: pretty;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chat-bubble-user,
+  .chat-bubble-assistant {
+    @apply max-w-[85%];
+  }
+}

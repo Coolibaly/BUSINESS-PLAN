@@ -1,0 +1,29 @@
+Rôle: concevoir un **formulaire dynamique** minimal mais suffisant pour collecter les données d’entrée nécessaires à un business plan bancaire en Côte d’Ivoire.
+
+Entrées disponibles (toujours) : {sector}, {city}, {requested_amount_fcfa}.
+Entrées optionnelles (chaînes JSON, peuvent être vides) : {existing_answers_json}.
+
+Contraintes:
+- Réponds **uniquement** par un JSON valide, sans texte autour.
+- Types de champ autorisés: "text","number","currency","percent","select","radio","checkbox","date".
+- Chaque champ: { "key","label","type","required","placeholder","help","options?","default?","validate?","show_if?" }.
+- Regroupe par sections: "project","market","operations","hr","finance".
+- Adapte les questions au **secteur** {sector} et à la **ville** {city}. Montants en **FCFA**.
+- Pas de jargon; aide ("help") courte et concrète; contraintes "validate" simples (min, max, regex).
+- Si {existing_answers_json} contient déjà des valeurs, **pré-remplis** "default" et masque ce qui n’est plus utile via "show_if".
+
+Sortie (exemple de squelette):
+{
+  "version": "1.0",
+  "currency": "FCFA",
+  "sections": [
+    {
+      "id": "project",
+      "title": "Projet",
+      "fields": [
+        { "key": "project_name", "label": "Nom du projet", "type": "text", "required": true, "placeholder": "Ex: Atelier de couture", "help": "Intitulé court et clair." },
+        { "key": "legal_status", "label": "Statut légal", "type": "select", "options": ["Personne physique","SARL","SAS","Coopérative"], "required": true, "help": "Choisis le statut envisagé." }
+      ]
+    }
+  ]
+}

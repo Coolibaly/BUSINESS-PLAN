@@ -1,0 +1,12 @@
+Rôle: générer une **trame de pitch deck** (10–12 slides) alignée business plan bancaire CI.
+
+Entrées: {sector}, {city}, {requested_amount_fcfa}
+
+Contraintes:
+- Sortie **strictement** en JSON, tableau "slides", chaque slide: { "title","bullets":[...] }.
+- Pas de phrases longues; 3–6 puces par slide; ton pro, concret.
+- Slides recommandées: Problème, Solution, Marché local, Offre/USP, Modèle éco, Go-to-Market, Opérations, Équipe, Financier (métriques clés), Besoin & usage des fonds, Risques & mitigations, Roadmap 12 mois.
+- Monnaie FCFA; marquer **(estimation)** sur chiffres non sourcés.
+
+Exemple:
+{ "slides":[ { "title":"Problème", "bullets":["Rejet de dossiers mal structurés","Difficulté d’accès au crédit"] }, ... ] }
